@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
+import { BooleanLocale } from 'yup/lib/locale';
 
-export const Container = styled.div`
+type ContainerStylesProps = {
+  isFilled: boolean;
+  isFocused: boolean;
+};
+
+export const Container = styled.div<ContainerStylesProps>`
   display: flex;
   align-items: center;
 
@@ -21,14 +27,14 @@ export const Container = styled.div`
     line-height: 36px;
   }
 
-  ${props =>
+  ${(props) =>
     props.isFocused &&
     css`
       color: #ff9000;
       border-color: #ff9000;
     `}
 
-  ${props =>
+  ${(props) =>
     props.isFilled &&
     css`
       color: #ff9000;
